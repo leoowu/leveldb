@@ -37,7 +37,22 @@ Quick start:
 
 ```bash
 mkdir -p build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build .
+cmake3 -DCMAKE_BUILD_TYPE=Release .. && cmake3 --build .
+
+
+echo '[group_kdesig-cmake3_EPEL]
+name=Copr repo for cmake3_EPEL owned by @kdesig
+baseurl=https://copr-be.cloud.fedoraproject.org/results/@kdesig/cmake3_EPEL/epel-7-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/@kdesig/cmake3_EPEL/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1' >> /etc/yum.repos.d/cmake3.repo
+
+yum install -y cmake3
+
 ```
 
 ### Building for Windows
